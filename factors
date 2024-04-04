@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+import sys
+ 
+def main():
+    global fichier
+    if  (len(sys.argv) != 2):
+        print("Usage: python script.py <fichier>")
+        return
+    fichier = sys.argv[1]
+
+def les_facteurs(n: int):
+    if (n % 2 == 0):
+        print(n, "=",n//2, "x", 2)
+    else:
+        for i in range(3, n//2):
+            if (n % i == 0):
+                print(n, "=", n//i, "x", i)
+                break
+if __name__ == "__main__":
+    main()
+with open(fichier, "r") as file:
+    data = file.read().splitlines()
+    for i in data:
+        les_facteurs(int(i))
